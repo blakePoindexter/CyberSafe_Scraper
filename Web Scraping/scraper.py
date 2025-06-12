@@ -1,10 +1,11 @@
 """ 
+scraper.py - Scrapes local business information from the local chamber of commerce directory
+and writes it to a CSV file.
+
 Web Scraper for CyberSafe Internship
-This web scraper will be used to pull information from local businesses in the Charlotte area.
 This is part of the CyberSafe internship program through the Carolina Cyber Network.
 Author: Blake Poindexter
 Date: 5/30/2025
-
 """
 
 from bs4 import BeautifulSoup

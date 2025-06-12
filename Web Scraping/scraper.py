@@ -22,12 +22,7 @@ with open("charlotte_chamber_scrape.csv", "w",newline="", encoding="utf-8") as c
 url = "https://directory.charlotteareachamber.com/memberdirectory"
 
 response = requests.get(url)
-#print(response)
-#print(response.text)
 
-# Initialize BeautifulSoup 
-# **Try using 'lxml' parser if 'html.parser' doesn't work as intended after modifications
-# *** lxml now throwing errors on Ubuntu; html.parser works fine
 doc = BeautifulSoup(response.text, 'html.parser')
 
 categoryName = doc.find(["div"], class_="mn-cat")
@@ -92,8 +87,6 @@ for categoryName in categoryNames:
             writer.writerow(info)
         
         # Begin try block to pull social media links, if listed
-        # This will be a bit more complex, as the scraper needs to 
-        # step through each link to find the social media links
         
         # This next part will be to add "https:" to the front
         # of the link if it is not already a full URL
@@ -104,7 +97,6 @@ for categoryName in categoryNames:
         
         company_response = requests.get(company_links)
         company_doc = BeautifulSoup(company_response.text, 'html.parser')
-        #company_page = company_doc.find(["div"], class_="mn-row-inner Rank10")
         # Now we have the company page, we can search for social media links
         
         # This will be the try block to pull social media links

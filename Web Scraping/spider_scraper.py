@@ -14,7 +14,7 @@ import time
 
 def run_spiderfoot_scan(target):
   """Runs a SpiderFoot scan for the given target."""
-  command = f"python3 ./sf.py -m sfp_spider,sfp_email,sfp_skymem -s {target} -t EMAILADDR,EMAILADDR_GENERIC -o csv > scan_results.csv" 
+  command = f"python3 Users/blake/spiderfoot/sf.py -m sfp_spider,sfp_email,sfp_skymem -s {target} -t EMAILADDR,EMAILADDR_GENERIC -o csv >> scan_results.csv" 
   process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
   stdout, stderr = process.communicate()
   time.sleep(5)  # Wait for a few seconds for scan
@@ -112,8 +112,6 @@ for categoryName in categoryNames:
                     print(social_link["href"])
         except AttributeError:
             print("No social media links found")
-
-
 
 
 

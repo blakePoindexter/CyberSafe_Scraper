@@ -97,25 +97,6 @@ for categoryName in categoryNames:
         
         company_response = requests.get(company_links)
         company_doc = BeautifulSoup(company_response.text, 'html.parser')
-        # Now we have the company page, we can search for social media links
-        
-        # This will be the try block to pull social media links
-        try:
-            social_links = company.find_all(["a"], target='"_blank"')
-            for social_link in social_links:
-                if "facebook.com" in social_link["href"]:
-                    print(social_link["href"])
-                elif "instagram.com" in social_link["href"]:
-                    print(social_link["href"])
-                elif "linkedin.com" in social_link["href"]:
-                    print(social_link["href"])
-                elif "twitter.com" in social_link["href"]:
-                    print(social_link["href"])
-        except AttributeError:
-            print("No social media links found")
-
-
-
 
 
 
